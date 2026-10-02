@@ -1,0 +1,15 @@
+"""
+Pydantic v2 schemas for JWT tokens.
+"""
+
+from pydantic import BaseModel
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+
+
+class TokenPayload(BaseModel):
+    sub: str | None = None
+    exp: int | None = None
